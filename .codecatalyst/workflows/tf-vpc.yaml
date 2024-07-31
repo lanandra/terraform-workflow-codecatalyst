@@ -54,7 +54,7 @@ Actions:
         Registry: DockerHub
         Image: hashicorp/terraform:1.8.2
       Steps:
-      - Run: vpc
+      - Run: cd vpc
       - Run: terraform init -no-color
       - Run: terraform apply -auto-approve -no-color -input=false
     Compute:
