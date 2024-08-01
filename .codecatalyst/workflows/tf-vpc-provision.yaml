@@ -1,4 +1,4 @@
-Name: tf-vpc
+Name: tf-vpc-provision
 SchemaVersion: "1.0"
 
 Triggers:

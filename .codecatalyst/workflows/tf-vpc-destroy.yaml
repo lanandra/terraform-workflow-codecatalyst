@@ -1,0 +1,24 @@
+Name: tf-vpc-destroy
+SchemaVersion: "1.0"
+
+Actions:
+  terraform-destroy:
+    Identifier: aws/build@v1
+    Inputs:
+      Sources:
+        - WorkflowSource
+    Environment:
+      Name: demo
+      Connections:
+        - Name: lanandra-sandbox
+          Role: demo-codecatalyst-265edcd8-0435-7318-45b9-cee40ab8fc89
+    Configuration:
+      Container:
+        Registry: DockerHub
+        Image: hashicorp/terraform:1.8.2
+      Steps:
+      - Run: cd vpc
+      - Run: terraform init -no-color
+      - Run: terraform destroy -auto-approve -no-color -input=false
+    Compute:
+      Type: EC2
