@@ -25,7 +25,7 @@ module "demo_apse1" {
   private_subnets = [for k, v in local.azs : cidrsubnet(var.vpc_cidr, 8, k)]
   public_subnets  = [for k, v in local.azs : cidrsubnet(var.vpc_cidr, 8, k + 3)]
 
-  enable_nat_gateway = true
+  enable_nat_gateway = false
   single_nat_gateway = true
 
   tags = local.tags
